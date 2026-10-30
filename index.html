@@ -32,17 +32,81 @@ footer{text-align:center;padding:25px 16px 38px;font-size:20px;line-height:1.7}f
 </main>
 <footer>© 2026 · Built with<br><a href="https://www.codsoft.in/" target="_blank" rel="noreferrer">CodSoft</a></footer>
 <script>
-const record={code:"56cce7e",student:"Bhushan Bharat Patil",domain:"Artificial intelligence internship",duration:"4 weeks",start:"25/Sep/2026",award:"25/Oct/2026"};
-const record={code:"60cce9e",student:"Megha Arun Patil",domain:"Artificial intelligence internship",duration:"4 weeks",start:"29/Sep/2026",award:"29/Oct/2026"};
-const form=document.getElementById('verifyForm'),input=document.getElementById('code'),error=document.getElementById('error');
-form.addEventListener('submit',e=>{e.preventDefault();error.style.display='none';if(input.value.trim().toLowerCase()!==record.code){error.textContent='Certificate code not found in this demo. Please check the code and try again.';error.style.display='block';return;}
-document.getElementById('student').textContent='Student Name: '+record.student;
-document.getElementById('domain').textContent='Domain: '+record.domain;
-document.getElementById('duration').textContent='Duration: '+record.duration;
-document.getElementById('certificate').textContent='Certification No: '+record.code;
-document.getElementById('start').textContent='Starting Date: '+record.start;
-document.getElementById('award').textContent='Award Date: '+record.award;
-document.getElementById('lookupView').style.display='none';document.getElementById('resultView').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+const records = {
+  "51cce3e": {
+    student: "Girase Abhishek Aanandsing",
+    domain: "Artificial Intelligence Internship",
+    duration: "4 Weeks",
+    start: "25/Sep/2026",
+    award: "25/Oct/2026"
+  },
+
+  "56cce7e": {
+    student: "Bhushan Bharat Patil",
+    domain: "Artificial Intelligence Internship",
+    duration: "4 Weeks",
+    start: "25/Sep/2026",
+    award: "25/Oct/2026"
+  },
+
+  "60cce9e": {
+    student: "Megha Arun Patil",
+    domain: "Artificial Intelligence Internship",
+    duration: "4 Weeks",
+    start: "29/Sep/2026",
+    award: "29/Oct/2026"
+  }
+};
+
+const form = document.getElementById("verifyForm");
+const input = document.getElementById("code");
+const error = document.getElementById("error");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const code = input.value.trim().toLowerCase();
+  const record = records[code];
+
+  error.style.display = "none";
+
+  if (!record) {
+    error.textContent =
+      "Certificate code not found in this demo. Please check the code and try again.";
+    error.style.display = "block";
+    return;
+  }
+
+  document.getElementById("student").textContent =
+    "Student Name: " + record.student;
+
+  document.getElementById("domain").textContent =
+    "Domain: " + record.domain;
+
+  document.getElementById("duration").textContent =
+    "Duration: " + record.duration;
+
+  document.getElementById("certificate").textContent =
+    "Certification No: " + code;
+
+  document.getElementById("start").textContent =
+    "Starting Date: " + record.start;
+
+  document.getElementById("award").textContent =
+    "Award Date: " + record.award;
+
+  document.getElementById("lookupView").style.display = "none";
+  document.getElementById("resultView").style.display = "block";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
-document.getElementById('back').addEventListener('click',()=>{document.getElementById('resultView').style.display='none';document.getElementById('lookupView').style.display='block';input.value='';error.style.display='none';window.scrollTo({top:0,behavior:'smooth'});});
-</script></body></html>
+
+document.getElementById("back").addEventListener("click", function() {
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("lookupView").style.display = "block";
+  input.value = "";
+  error.style.display = "none";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+      
